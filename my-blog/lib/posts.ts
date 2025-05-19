@@ -20,7 +20,9 @@ export function getAllPosts() {
 
     return {
       slug,
-      ...data,
+      title: data.title,
+      description: data.description,
+      date: String(data.date), // Force it to be string
     } as {
       slug: string;
       title: string;
@@ -39,7 +41,16 @@ export async function getPostBySlug(slug: string) {
 
   return {
     slug,
+    title: data.title,
+    description: data.description,
+    date: String(data.date),
     contentHtml,
-    ...data,
+  } as {
+    slug: string;
+    title: string;
+    description: string;
+    date: string;
+    contentHtml: string;
   };
 }
+

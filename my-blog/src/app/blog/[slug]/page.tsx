@@ -1,4 +1,4 @@
-import { getPostBySlug } from '../../../../lib/posts';
+import { getPostBySlug, getAllPosts } from '../../../../lib/posts';
 import { notFound } from 'next/navigation';
 
 type Props = {
@@ -16,4 +16,14 @@ export default async function BlogPostPage({ params }: Props) {
       <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
     </article>
   );
+}
+ 
+
+
+
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }

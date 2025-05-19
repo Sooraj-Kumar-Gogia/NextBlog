@@ -6,7 +6,7 @@ export default async function Home() {
 
   return (
     <main className="p-6">
-      <h1 className="text-3xl font-bold mb-4">My Blog</h1>
+      <h1 className="text-3xl font-bold mb-4 text-red-500">My Blog</h1>
       {posts.map((post) => (
         <div key={`${post.slug}-${post.date}`} className="mb-6">
           <Link href={`/blog/${post.slug}`}>
